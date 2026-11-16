@@ -347,7 +347,7 @@
     event.currentTarget.textContent = muted ? '🔇 Sound off' : '🔊 Sound on';
   });
   catchArea.addEventListener('pointermove', event => {
-    if (catchState && event.pointerType !== 'touch') setBasket(event.clientX);
+    if (catchState) setBasket(event.clientX);
   });
   catchArea.addEventListener('pointerdown', event => {
     if (catchState) setBasket(event.clientX);
