@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff5f5">
+  <meta name="description" content="A tiny, happy world made just for you.">
+  <title>A Little World Just for You 🎀</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="sky-doodle doodle-cloud" aria-hidden="true">☁️</div>
+  <div class="sky-doodle doodle-star" aria-hidden="true">✦</div>
+  <div class="sky-doodle doodle-flower" aria-hidden="true">🌼</div>
+  <div class="sky-doodle doodle-butterfly" aria-hidden="true">🦋</div>
+  <main class="world">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="A Little World home"><span class="brand-bow">🎀</span> a little world</a>
+      <div class="progress-wrap" aria-label="Game progress">
+        <span class="progress-label">YOUR ADVENTURE</span>
+        <div class="progress-dots" id="progress-dots">
+          <span class="progress-dot" aria-label="Game 1"></span>
+          <span class="progress-dot" aria-label="Game 2"></span>
+          <span class="progress-dot" aria-label="Game 3"></span>
+        </div>
+      </div>
+      <span class="top-sparkle" aria-hidden="true">✧</span>
+    </header>
+
+    <section class="screen welcome-screen" id="welcome-screen">
+      <div class="welcome-copy">
+        <div class="tiny-note"><span>✿</span> a tiny happy place <span>✿</span></div>
+        <h1>Hey, you!<br><span>Yes, YOU!</span> <span class="pink-heart">💗</span></h1>
+        <p class="welcome-text">I made a little world just for you.<br>Are you ready for a little adventure?</p>
+        <button class="button button-primary" id="start-button">Let’s Go! <span>✨</span></button>
+        <p class="hand-note">psst... there's magic ahead <span>♡</span></p>
+      </div>
+      <div class="welcome-art" aria-label="A friendly teddy bear in a flower garden">
+        <div class="art-sun">☀️</div>
+        <div class="art-cloud">☁️</div>
+        <div class="flower flower-one">🌷</div>
+        <div class="flower flower-two">🌼</div>
+        <div class="flower flower-three">🌸</div>
+        <div class="bear">🧸</div>
+        <div class="bear-heart">♡</div>
+        <div class="art-ground"></div>
+        <div class="art-label">your own little<br>pocket of sunshine</div>
+        <span class="art-sparkle sparkle-one">✦</span>
+        <span class="art-sparkle sparkle-two">✧</span>
+      </div>
+      <div class="welcome-foot"><span>♡</span> made with a little bit of magic <span>♡</span></div>
+    </section>
+
+    <section class="screen game-screen is-hidden" id="game-screen" aria-live="polite">
+      <div class="stage-heading">
+        <p class="eyebrow" id="stage-eyebrow">GAME 1 OF 3</p>
+        <h1 id="game-title">Memory Match</h1>
+        <p class="stage-subtitle" id="game-subtitle">Find the matching little friends!</p>
+      </div>
+      <div class="game-card" id="game-card">
+        <div class="memory-toolbar" id="memory-toolbar">
+          <span class="stat-pill">MOVES <strong id="move-count">0</strong></span>
+          <span class="stat-pill">PAIRS <strong id="pair-count">0 / 6</strong></span>
+        </div>
+        <div class="memory-grid" id="memory-grid" aria-label="Memory match cards"></div>
+
+        <div class="catch-toolbar is-hidden" id="catch-toolbar">
+          <span class="stat-pill">SCORE <strong id="catch-score">0</strong></span>
+          <span class="stat-pill timer-pill">TIME <strong id="catch-timer">20</strong></span>
+          <button class="sound-button" id="sound-button" aria-pressed="false" aria-label="Mute sound effects">🔊 Sound on</button>
+        </div>
+        <div class="catch-area is-hidden" id="catch-area" tabindex="0" aria-label="Catch falling hearts. Move the basket with your pointer, or use the left and right arrow keys.">
+          <div class="catch-cloud cloud-left">☁️</div>
+          <div class="catch-cloud cloud-right">☁️</div>
+          <div class="catch-basket" id="catch-basket" aria-hidden="true">🧺</div>
+          <div class="catch-overlay" id="catch-overlay">
+            <div class="overlay-emoji">💞</div>
+            <h2>Ready, little heart-catcher?</h2>
+            <p>Move your basket to catch as many hearts as you can in 20 seconds!</p>
+            <button class="button button-primary" id="catch-start">Start catching! <span>💗</span></button>
+          </div>
+        </div>
+
+        <div class="gift-area is-hidden" id="gift-area">
+          <p class="gift-prompt">Pick the gift that feels like yours ✨</p>
+          <div class="gift-row">
+            <button class="gift-box gift-pink" data-gift="0" aria-label="Open the pink mystery gift"><span>🎁</span><small>mystery no. 1</small></button>
+            <button class="gift-box gift-lilac" data-gift="1" aria-label="Open the lilac mystery gift"><span>🎁</span><small>mystery no. 2</small></button>
+            <button class="gift-box gift-blue" data-gift="2" aria-label="Open the blue mystery gift"><span>🎁</span><small>mystery no. 3</small></button>
+          </div>
+          <div class="gift-reveal is-hidden" id="gift-reveal" aria-live="polite"></div>
+        </div>
+        <div class="game-result is-hidden" id="game-result" aria-live="polite"></div>
+      </div>
+      <div class="stage-actions">
+        <button class="button button-primary is-hidden" id="next-button">Next little adventure <span>→</span></button>
+      </div>
+      <p class="stage-footer">you’re doing wonderfully <span>♡</span></p>
+    </section>
+
+    <section class="screen final-screen is-hidden" id="final-screen">
+      <div class="final-confetti" aria-hidden="true"></div>
+      <div class="winner-badge"><span>🏆</span><small>LITTLE<br>WINNER</small></div>
+      <p class="eyebrow">YOUR LITTLE ADVENTURE IS COMPLETE</p>
+      <h1>YOU DID IT! <span>🎀</span></h1>
+      <h2>Congratulations, Little Winner!</h2>
+      <div class="final-card">
+        <div class="final-decoration" aria-hidden="true">🌷　♡　🌷</div>
+        <p>This little world was made just for you. I created this website hoping it would bring a smile to your face, even if just for a moment.</p>
+        <p>You deserve happiness, beautiful moments, and all the good things in this world.</p>
+        <p class="final-bold">Never forget how special you are! 💗</p>
+      </div>
+      <p class="made-with-love">Made with love, just for you ♡</p>
+      <button class="button button-secondary" id="replay-button">Play again <span>↻</span></button>
+    </section>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
