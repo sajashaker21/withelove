@@ -37,5 +37,5 @@ https://sajashaker21.github.io/withelove/
 
 Made with love, just for you ♡
 
-## screenshots
-![withe love website](withelove.png)
+## project preview
+![with love website](withelove.png)
